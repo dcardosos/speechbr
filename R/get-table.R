@@ -7,8 +7,8 @@
 #'
 #' @param tx_text principal text or phrase present on speech
 #' @param current_page current page of search (integer numbers)
-#' @param reference_date end date of search
-#' @param qtd_days quantity of days before the `reference_date`
+#' @param reference_date end date of search, the default is the last day of 2021.
+#' @param qtd_days quantity of days before the `reference_date`, the default is 5 days.
 #' @return invisible, return a HTML file
 #'
 #' @importFrom lubridate ymd
@@ -24,7 +24,7 @@ download_page <- function(
   tx_text, #file,
   current_page = 1,
   reference_date = "2021-12-20",
-  qtd_days = 3) {
+  qtd_days = 5) {
 
   dt_fim <- format(lubridate::ymd(reference_date), "%d/%m/%Y")
   dt_inicio <- format(lubridate::ymd(reference_date) - qtd_days, "%d/%m/%Y")
