@@ -1,14 +1,33 @@
 Package: speechbr
-Title: What the Package Does (One Line, Title Case)
+Title: Access The Speechs And Speaker's Informations of Camara Dos Deputados.
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Douglas", "Cardoso", , 
+    "cardosos.doug@gmail.com", 
+    role = c("aut", "cre")
+Description: Scrap Speech Text And Speaker Informations of Discusos E Notas 
+             Taquigraficas of Camara Dos Deputados Of Brazil, And Transform In 
+             A Cleaned Tibble.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 URL: https://github.com/dcardosos/speechbr
 BugReports: https://github.com/dcardosos/speechbr/issues
+Imports: 
+    abjutils,
+    dplyr,
+    furrr,
+    future,
+    httr,
+    janitor,
+    lubridate,
+    magrittr,
+    progressr,
+    purrr,
+    stringr,
+    tidyr,
+    xml2,
+    rvest,
+    rlang,
+    tibble
