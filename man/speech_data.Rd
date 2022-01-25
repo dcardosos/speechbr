@@ -15,3 +15,8 @@ vector the speech data with all informational columns and the speech.
 \description{
 Extract the text of the speech given an URL.
 }
+\examples{
+speech_data(keyword = "pandemia")
+speech_data(keyword = '"meio ambiente"')
+
+}

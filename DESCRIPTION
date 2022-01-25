@@ -1,10 +1,12 @@
 Package: speechbr
-Title: Access The Speechs And Speaker's Informations of Camara Dos Deputados.
+Title: Access The Speechs And Speaker's Informations of Camara Dos Deputados
 Version: 0.0.0.9000
 Authors@R: 
-    person("Douglas", "Cardoso", , 
-    "cardosos.doug@gmail.com", 
-    role = c("aut", "cre")
+    person(given = "Douglas",
+           family = "Cardoso",
+           role = c("aut", "cre"),
+           email = "cardosos.doug@gmail.com",
+           comment = c(ORCID = "0000-0002-3064-4486"))
 Description: Scrap Speech Text And Speaker Informations of Discusos E Notas 
              Taquigraficas of Camara Dos Deputados Of Brazil, And Transform In 
              A Cleaned Tibble.
@@ -17,13 +19,10 @@ BugReports: https://github.com/dcardosos/speechbr/issues
 Imports: 
     abjutils,
     dplyr,
-    furrr,
-    future,
     httr,
     janitor,
     lubridate,
     magrittr,
-    progressr,
     purrr,
     stringr,
     tidyr,

@@ -8,7 +8,7 @@ download_page(
   tx_text,
   current_page = 1,
   reference_date = "2021-12-20",
-  qtd_days = 3
+  qtd_days = 5
 )
 }
 \arguments{
@@ -16,9 +16,9 @@ download_page(
 
 \item{current_page}{current page of search (integer numbers)}
 
-\item{reference_date}{end date of search}
+\item{reference_date}{end date of search, the default is the last day of 2021.}
 
-\item{qtd_days}{quantity of days before the \code{reference_date}}
+\item{qtd_days}{quantity of days before the \code{reference_date}, the default is 5 days.}
 }
 \value{
 invisible, return a HTML file
