@@ -33,14 +33,21 @@ devtools::install_github("dcardosos/speechbr")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+An example of a base searching for the term "pandemia" ("pandemic", in English):
 
 ```{r example}
 library(speechbr)
 library(ggplot2)
+library(magrittr)
 
 pandemic <- speechbr::speech_data("pandemia")
 
+dplyr::glimpse(pandemic)
+```
+
+A simple application using the base:
+
+```{r example_2}
 pandemic %>% 
   dplyr::group_by(partido) %>% 
   dplyr::count(partido) %>% 
@@ -56,4 +63,11 @@ pandemic %>%
   )
 ```
 
+### Example of a base
 
+```{r example_3}
+
+pandemic %>% 
+  head(7) %>%
+  knitr::kable()
+```
