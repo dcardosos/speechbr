@@ -98,6 +98,7 @@ extract_table <- function(r_html){
 #' @importFrom dplyr filter row_number mutate across select
 #' @importFrom tidyr separate
 #' @importFrom lubridate dmy
+#' @importFrom stringr str_squish
 #'
 #' @keywords internal
 #'
@@ -117,7 +118,8 @@ clean_table <- function(tab, txt){
         .cols = c(data, data_publicacao),
         .fns = lubridate::dmy
       ),
-      discurso = txt
+      discurso = txt,
+      partido = stringr::str_squish(partido)
     ) %>%
     dplyr::select(-sumario)
 
