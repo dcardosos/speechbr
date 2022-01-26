@@ -26,7 +26,7 @@ The goal of `{speechbr}` is to democratize access to the speeches of the deputie
 
 You can install the development version of speechbr from [GitHub](https://github.com/) with:
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 # install.packages("devtools")
 devtools::install_github("dcardosos/speechbr")
 ```
@@ -35,15 +35,20 @@ devtools::install_github("dcardosos/speechbr")
 
 An example of a base searching for the term "pandemia" ("pandemic", in English):
 
-```{r example}
+```{r example, warning=FALSE, message=FALSE}
 library(speechbr)
 library(ggplot2)
 library(magrittr)
 
-pandemic <- speechbr::speech_data("pandemia")
+pandemic <- speechbr::speech_data(
+  keyword = "pandemia",
+  reference_date = "2021-12-20",
+  qtd_days = 5)
 
 dplyr::glimpse(pandemic)
 ```
+
+The default of function is search within 2021-12-26 and 2021-12-31. If you want change this, use the arguments `reference_date` and `qtd_days`.
 
 A simple application using the base:
 
@@ -65,9 +70,9 @@ pandemic %>%
 
 ### Example of a base
 
-```{r example_3}
+```{r example_3, echo=FALSE}
 
 pandemic %>% 
-  head(7) %>%
+  head(2) %>%
   knitr::kable()
 ```
