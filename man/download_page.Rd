@@ -4,12 +4,7 @@
 \alias{download_page}
 \title{Obtains the HTML file of a current page given a main text or phrase.}
 \usage{
-download_page(
-  tx_text,
-  current_page = 1,
-  reference_date = "2021-12-20",
-  qtd_days = 5
-)
+download_page(tx_text, current_page, reference_date, qtd_days)
 }
 \arguments{
 \item{tx_text}{principal text or phrase present on speech}
