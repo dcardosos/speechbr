@@ -22,9 +22,9 @@
 #'
 download_page <- function(
   tx_text, #file,
-  current_page = 1,
-  reference_date = "2021-12-20",
-  qtd_days = 5) {
+  current_page,
+  reference_date,
+  qtd_days) {
 
   dt_fim <- format(lubridate::ymd(reference_date), "%d/%m/%Y")
   dt_inicio <- format(lubridate::ymd(reference_date) - qtd_days, "%d/%m/%Y")

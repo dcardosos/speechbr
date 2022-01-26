@@ -18,14 +18,17 @@
 #' @examples speech_data(keyword = '"meio ambiente"')
 #'
 
-speech_data <- function(keyword){
+speech_data <- function(
+  keyword,
+  reference_date = "2021-12-20",
+  qtd_days = 5){
 
-  first_page <- download_page(keyword)
+  first_page <- download_page(keyword, reference_date, qtd_days)
 
   pages <-
     purrr::map(
       seq(1, num_pag(first_page)),
-        ~ download_page(keyword, .x))
+        ~ download_page(keyword, .x, reference_date, qtd_days))
 
   maybe_get_speech_text <- purrr::possibly(get_speech_text,
                                            otherwise = "error")

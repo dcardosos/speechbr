@@ -13,4 +13,4 @@
 #' @return The result of calling `rhs(lhs)`.
 NULL
 
-utils::globalVariables(c(".", "orador", "publicacao", "data", "data_publicacao", "sumario"))
+utils::globalVariables(c(".", "partido", "orador", "publicacao", "data", "data_publicacao", "sumario"))
