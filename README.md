@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# speechbr
+# speechbr package <img src="man/figures/hexlogo.png" align="right" width = "120px"/>
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -10,6 +10,10 @@
 
 The goal of `{speechbr}` is to democratize access to the speeches of the
 deputies, that is, their ideias and thoughts.
+
+The data is obtained on [Discursos e Notas
+Taquigráficas](https://www2.camara.leg.br/atividade-legislativa/discursos-e-notas-taquigraficas)
+of [Câmara dos Deputados](https://www.camara.leg.br/).
 
 ## Installation
 
@@ -29,7 +33,6 @@ English):
 ``` r
 library(speechbr)
 library(ggplot2)
-library(magrittr)
 
 pandemic <- speechbr::speech_data(
   keyword = "pandemia",
