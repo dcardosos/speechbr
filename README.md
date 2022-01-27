@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# speechbr package <img src="man/figures/hexlogo.png" align="right" width = "120px"/>
+# speechbr <img src="man/figures/hexlogo.png" align="right" width = "120px"/>
 
 <!-- badges: start -->
 <!-- badges: end -->

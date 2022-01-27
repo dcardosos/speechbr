@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# speechbr package <img src="man/figures/hexlogo.png" align="right" width = "120px"/>
+# speechbr <img src="man/figures/hexlogo.png" align="right" width = "120px"/>
 
 
 <!-- badges: start -->
