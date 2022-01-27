@@ -13,7 +13,8 @@
 #'
 #' @importFrom purrr map possibly map_dfr
 #' @importFrom tibble tibble
-#'
+#' @importFrom rlang abort
+#' @importFrom lubridate ymd
 #' @export
 #'
 #' @examples speech_data(keyword = "pandemia", reference_date = "2021-12-20", qtd_days = 5)
@@ -24,6 +25,12 @@ speech_data <- function(
   keyword,
   reference_date,
   qtd_days){
+
+  if(lubridate::ymd(reference_date) > lubridate::ymd("2021-12-31")){
+
+    rlang::abort("The website dont't make 2022 speeches available yet.")
+
+  }
 
   first_page <- download_page(tx_text = keyword,
                               current_page = 1,
