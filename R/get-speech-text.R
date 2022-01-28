@@ -26,7 +26,7 @@ get_speech_text <- function(txt_urls){
     stringr::str_squish() %>%
     stringr::str_trim() %>%
     stringr::str_replace_all("\"", "'") %>%
-    stringr::str_remove_all("(Desligamento automático do microfone.)")
+    stringr::str_remove_all("(Desligamento autom\u00e1tico do microfone.)")
 }
 
 #'
