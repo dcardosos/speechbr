@@ -20,12 +20,10 @@
 #'
 #' @keywords internal
 #'
-download_page <- function(
-  tx_text, #file,
-  current_page,
-  reference_date,
-  qtd_days) {
-
+download_page <- function(tx_text, # file,
+                          current_page,
+                          reference_date,
+                          qtd_days) {
   dt_fim <- format(lubridate::ymd(reference_date), "%d/%m/%Y")
   dt_inicio <- format(lubridate::ymd(reference_date) - qtd_days, "%d/%m/%Y")
 
@@ -33,15 +31,15 @@ download_page <- function(
   u_tabela <- paste0(u_base, "resultadoPesquisaDiscursos.asp")
 
   query <- list(
-    'CurrentPage' = current_page,
-    'BasePesq'= 'plenario',
-    'dtInicio'= dt_inicio,
-    'dtFim'= dt_fim,
-    'txUF'= '',
-    'CampoOrdenacao' = 'dtSessao',
-    'TipoOrdenacao'= 'DESC',
-    'PageSize'= '50',
-    'txTexto'= tx_text
+    "CurrentPage" = current_page,
+    "BasePesq" = "plenario",
+    "dtInicio" = dt_inicio,
+    "dtFim" = dt_fim,
+    "txUF" = "",
+    "CampoOrdenacao" = "dtSessao",
+    "TipoOrdenacao" = "DESC",
+    "PageSize" = "50",
+    "txTexto" = tx_text
   )
 
   r <- httr::GET(u_tabela, query = query)
@@ -51,8 +49,7 @@ download_page <- function(
     xml2::xml_find_first('//span[@class="labelInfo"]') %>%
     xml2::xml_text()
 
-  if(!rlang::is_na(not_found)){
-
+  if (!rlang::is_na(not_found)) {
     rlang::abort("No speeches found.")
   }
 
@@ -75,8 +72,7 @@ download_page <- function(
 #'
 #' @keywords internal
 #'
-extract_table <- function(r_html){
-
+extract_table <- function(r_html) {
   r_html %>%
     xml2::read_html() %>%
     xml2::xml_find_first('//*[@id="content"]/div/table') %>%
@@ -102,17 +98,18 @@ extract_table <- function(r_html){
 #'
 #' @keywords internal
 #'
-clean_table <- function(tab, txt){
-
+clean_table <- function(tab, txt) {
   tab %>%
     janitor::clean_names() %>%
     dplyr::filter(dplyr::row_number() %% 2 != 0) %>%
     tidyr::separate(orador,
-                    c("orador", "partido"),
-                    sep = ",") %>%
+      c("orador", "partido"),
+      sep = ","
+    ) %>%
     tidyr::separate(publicacao,
-                    c("local_publicacao", "data_publicacao"),
-                    sep = " ") %>%
+      c("local_publicacao", "data_publicacao"),
+      sep = " "
+    ) %>%
     dplyr::mutate(
       dplyr::across(
         .cols = c(data, data_publicacao),
@@ -122,7 +119,6 @@ clean_table <- function(tab, txt){
       partido = stringr::str_squish(partido)
     ) %>%
     dplyr::select(-sumario)
-
 }
 
 #'
@@ -140,13 +136,11 @@ clean_table <- function(tab, txt){
 #'
 #' @keywords internal
 #'
-num_pag <- function(r_html){
-
+num_pag <- function(r_html) {
   r_html %>%
     xml2::read_html() %>%
     xml2::xml_find_first('//*[@id="content"]/div/span[3]') %>%
     xml2::xml_text() %>%
     stringr::str_replace("[.]", "") %>%
-    as.integer %/% 50  + 1
-
+    as.integer() %/% 50 + 1
 }

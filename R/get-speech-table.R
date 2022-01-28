@@ -19,49 +19,53 @@
 #'
 #' @examples speech_data(keyword = "pandemia", reference_date = "2021-12-20", qtd_days = 5)
 #' @examples speech_data(keyword = '"meio ambiente"', reference_date = "2021-12-20", qtd_days = 5)
-#'
-
-speech_data <- function(
-  keyword,
-  reference_date,
-  qtd_days){
-
-  if(lubridate::ymd(reference_date) > lubridate::ymd("2021-12-31")){
-
+speech_data <- function(keyword,
+                        reference_date,
+                        qtd_days) {
+  if (lubridate::ymd(reference_date) > lubridate::ymd("2021-12-31")) {
     rlang::abort("The website dont't make 2022 speeches available yet.")
-
   }
 
-  first_page <- download_page(tx_text = keyword,
-                              current_page = 1,
-                              reference_date = reference_date,
-                              qtd_days = qtd_days)
+  first_page <- download_page(
+    tx_text = keyword,
+    current_page = 1,
+    reference_date = reference_date,
+    qtd_days = qtd_days
+  )
 
   pages <-
     purrr::map(
       seq(1, num_pag(first_page)),
-        ~ download_page(tx_text = keyword,
-                        current_page = .x,
-                        reference_date = reference_date,
-                        qtd_days = qtd_days))
+      ~ download_page(
+        tx_text = keyword,
+        current_page = .x,
+        reference_date = reference_date,
+        qtd_days = qtd_days
+      )
+    )
 
   maybe_get_speech_text <- purrr::possibly(get_speech_text,
-                                           otherwise = "error")
+    otherwise = "error"
+  )
 
   texts <-
-    purrr::map(pages,
-               ~ transformer_url(.x)) %>%
+    purrr::map(
+      pages,
+      ~ transformer_url(.x)
+    ) %>%
     unlist() %>%
     purrr::map(~ maybe_get_speech_text(.x)) %>%
     unlist()
 
   maybe_extract_table <- purrr::possibly(extract_table,
-                                      otherwise = tibble::tibble(error = "error"))
+    otherwise = tibble::tibble(error = "error")
+  )
   tab <-
-    purrr::map_dfr(pages,
-                   ~ maybe_extract_table(.x)) %>%
+    purrr::map_dfr(
+      pages,
+      ~ maybe_extract_table(.x)
+    ) %>%
     clean_table(texts)
 
   tab
-
 }

@@ -15,8 +15,7 @@
 #'
 #' @keywords internal
 #'
-get_speech_text <- function(txt_urls){
-
+get_speech_text <- function(txt_urls) {
   txt_urls %>%
     stringr::str_remove("(?<=txTipoSessao=).+?(?=&)") %>%
     abjutils::rm_accent() %>%
@@ -47,8 +46,7 @@ get_speech_text <- function(txt_urls){
 #' @keywords internal
 #'
 
-transformer_url <- function(r_html){
-
+transformer_url <- function(r_html) {
   u_base <- "https://www.camara.leg.br/internet/sitaqweb/"
 
   r_html %>%
