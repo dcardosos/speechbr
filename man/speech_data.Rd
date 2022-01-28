@@ -14,7 +14,7 @@ speech_data(keyword, reference_date, qtd_days)
 \item{qtd_days}{quantity of days before the \code{reference_date}.}
 }
 \value{
-vector the speech data with all informational columns and the speech.
+the speech data with all informational columns and the speech.
 }
 \description{
 Extract the text of the speech given an URL.

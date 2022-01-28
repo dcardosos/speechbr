@@ -8,7 +8,7 @@
 #' @param reference_date end date of search.
 #' @param qtd_days quantity of days before the `reference_date`.
 #'
-#' @return vector the speech data with all informational columns and the speech.
+#' @return the speech data with all informational columns and the speech.
 #'
 #' @export
 #'
