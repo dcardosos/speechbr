@@ -5,7 +5,7 @@
 #' Extract the text of the speech given an URL.
 #'
 #' @param keyword argument of the `download_page` function.
-#' @param reference_date end date of search, the default is the last day of 2021.
+#' @param reference_date end date of search.
 #' @param qtd_days quantity of days before the `reference_date`.
 #'
 #' @return vector the speech data with all informational columns and the speech.

@@ -9,7 +9,7 @@ speech_data(keyword, reference_date, qtd_days)
 \arguments{
 \item{keyword}{argument of the \code{download_page} function.}
 
-\item{reference_date}{end date of search, the default is the last day of 2021.}
+\item{reference_date}{end date of search.}
 
 \item{qtd_days}{quantity of days before the \code{reference_date}.}
 }
