@@ -16,7 +16,6 @@
 #' @importFrom lubridate ymd
 #' @export
 #'
-#' @examples speech_data(keyword = "pandemia", reference_date = "2021-12-20", qtd_days = 5)
 #' @examples speech_data(keyword = '"meio ambiente"', reference_date = "2021-12-20", qtd_days = 5)
 speech_data <- function(keyword,
                         reference_date,
