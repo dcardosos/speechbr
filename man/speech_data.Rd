@@ -7,7 +7,7 @@
 speech_data(keyword, reference_date, qtd_days)
 }
 \arguments{
-\item{keyword}{argument of the \code{download_page} function.}
+\item{keyword}{the keyword used to search speeches.}
 
 \item{reference_date}{end date of search.}
 
