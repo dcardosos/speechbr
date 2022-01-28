@@ -10,13 +10,6 @@
 #' @param qtd_days quantity of days before the `reference_date`, the default is 5 days.
 #' @return invisible, return a HTML file
 #'
-#' @importFrom lubridate ymd
-#' @importFrom httr GET
-#' @importFrom xml2 read_html xml_find_first xml_text
-#' @importFrom rvest html_table
-#' @importFrom purrr possibly
-#' @importFrom rlang is_na abort
-#'
 #' @noRd
 download_page <- function(tx_text, # file,
                           current_page,
@@ -64,9 +57,6 @@ download_page <- function(tx_text, # file,
 #'
 #' @return return the table with informations about the speaker
 #'
-#' @importFrom xml2 read_html xml_find_first
-#' @importFrom rvest html_table
-#'
 #' @noRd
 extract_table <- function(r_html) {
   r_html %>%
@@ -84,12 +74,6 @@ extract_table <- function(r_html) {
 #' @param tab durty table
 #' @param txt vector with the texts
 #' @return return the cleaned table
-#'
-#' @importFrom janitor clean_names
-#' @importFrom dplyr filter row_number mutate across select
-#' @importFrom tidyr separate
-#' @importFrom lubridate dmy
-#' @importFrom stringr str_squish
 #'
 #' @noRd
 clean_table <- function(tab, txt) {
@@ -123,9 +107,6 @@ clean_table <- function(tab, txt) {
 #'
 #' @param r_html a response HTML file
 #' @return return the number of pages that exist
-#'
-#' @importFrom xml2 read_html xml_find_first xml_text
-#' @importFrom stringr str_replace
 #'
 #' @noRd
 num_pag <- function(r_html) {

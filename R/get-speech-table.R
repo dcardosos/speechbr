@@ -10,10 +10,6 @@
 #'
 #' @return vector the speech data with all informational columns and the speech.
 #'
-#' @importFrom purrr map possibly map_dfr
-#' @importFrom tibble tibble
-#' @importFrom rlang abort
-#' @importFrom lubridate ymd
 #' @export
 #'
 #' @examples speech_data(keyword = '"meio ambiente"', reference_date = "2021-12-20", qtd_days = 5)
