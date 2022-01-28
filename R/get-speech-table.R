@@ -6,13 +6,13 @@
 #'
 #' @param keyword argument of the `download_page` function.
 #' @param reference_date end date of search, the default is the last day of 2021.
-#' @param qtd_days quantity of days before the `reference_date`, the default is 5 days.
+#' @param qtd_days quantity of days before the `reference_date`.
 #'
 #' @return vector the speech data with all informational columns and the speech.
 #'
 #' @export
 #'
-#' @examples speech_data(keyword = '"meio ambiente"', reference_date = "2021-12-20", qtd_days = 5)
+#' @examples speech_data(keyword = '"meio ambiente"', reference_date = "2021-12-20", qtd_days = 3)
 speech_data <- function(keyword,
                         reference_date,
                         qtd_days) {

@@ -11,7 +11,7 @@ speech_data(keyword, reference_date, qtd_days)
 
 \item{reference_date}{end date of search, the default is the last day of 2021.}
 
-\item{qtd_days}{quantity of days before the \code{reference_date}, the default is 5 days.}
+\item{qtd_days}{quantity of days before the \code{reference_date}.}
 }
 \value{
 vector the speech data with all informational columns and the speech.
@@ -20,5 +20,5 @@ vector the speech data with all informational columns and the speech.
 Extract the text of the speech given an URL.
 }
 \examples{
-speech_data(keyword = '"meio ambiente"', reference_date = "2021-12-20", qtd_days = 5)
+speech_data(keyword = '"meio ambiente"', reference_date = "2021-12-20", qtd_days = 3)
 }
