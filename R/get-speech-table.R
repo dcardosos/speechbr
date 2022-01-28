@@ -1,4 +1,3 @@
-#'
 #' Obtains the text of the speech
 #'
 #' @description

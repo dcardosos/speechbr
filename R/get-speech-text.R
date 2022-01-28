@@ -1,4 +1,3 @@
-#'
 #' Obtains the text of the speech
 #'
 #' @description
@@ -13,8 +12,7 @@
 #' @importFrom xml2 read_html xml_find_first xml_text
 #' @importFrom abjutils rm_accent
 #'
-#' @keywords internal
-#'
+#' @noRd
 get_speech_text <- function(txt_urls) {
   txt_urls %>%
     stringr::str_remove("(?<=txTipoSessao=).+?(?=&)") %>%
@@ -28,7 +26,6 @@ get_speech_text <- function(txt_urls) {
     stringr::str_remove_all("(Desligamento autom\u00e1tico do microfone.)")
 }
 
-#'
 #' Obtains the text of the speech
 #'
 #' @description
@@ -42,10 +39,8 @@ get_speech_text <- function(txt_urls) {
 #' @importFrom stringr str_replace_all str_squish
 #' @importFrom xml2 read_html xml_find_all xml_attr
 #' @importFrom stats na.omit
-
-#' @keywords internal
 #'
-
+#' @noRd
 transformer_url <- function(r_html) {
   u_base <- "https://www.camara.leg.br/internet/sitaqweb/"
 

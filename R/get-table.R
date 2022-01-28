@@ -1,4 +1,3 @@
-#'
 #' Obtains the HTML file of a current page given a main text or phrase.
 #'
 #' @description
@@ -18,8 +17,7 @@
 #' @importFrom purrr possibly
 #' @importFrom rlang is_na abort
 #'
-#' @keywords internal
-#'
+#' @noRd
 download_page <- function(tx_text, # file,
                           current_page,
                           reference_date,
@@ -56,7 +54,6 @@ download_page <- function(tx_text, # file,
   return(r)
 }
 
-#'
 #' Get the table with informations
 #'
 #' @description
@@ -70,8 +67,7 @@ download_page <- function(tx_text, # file,
 #' @importFrom xml2 read_html xml_find_first
 #' @importFrom rvest html_table
 #'
-#' @keywords internal
-#'
+#' @noRd
 extract_table <- function(r_html) {
   r_html %>%
     xml2::read_html() %>%
@@ -79,7 +75,6 @@ extract_table <- function(r_html) {
     rvest::html_table()
 }
 
-#'
 #' Clean the table and add the text of the speechs
 #'
 #' @description
@@ -96,8 +91,7 @@ extract_table <- function(r_html) {
 #' @importFrom lubridate dmy
 #' @importFrom stringr str_squish
 #'
-#' @keywords internal
-#'
+#' @noRd
 clean_table <- function(tab, txt) {
   tab %>%
     janitor::clean_names() %>%
@@ -121,7 +115,6 @@ clean_table <- function(tab, txt) {
     dplyr::select(-sumario)
 }
 
-#'
 #' Calculate the number of pages that the request has.
 #'
 #' @description
@@ -134,8 +127,7 @@ clean_table <- function(tab, txt) {
 #' @importFrom xml2 read_html xml_find_first xml_text
 #' @importFrom stringr str_replace
 #'
-#' @keywords internal
-#'
+#' @noRd
 num_pag <- function(r_html) {
   r_html %>%
     xml2::read_html() %>%

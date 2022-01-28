@@ -22,5 +22,4 @@ Extract the text of the speech given an URL.
 \examples{
 speech_data(keyword = "pandemia", reference_date = "2021-12-20", qtd_days = 5)
 speech_data(keyword = '"meio ambiente"', reference_date = "2021-12-20", qtd_days = 5)
-
 }
