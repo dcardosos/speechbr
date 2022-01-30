@@ -7,6 +7,7 @@
 #' @param keyword the keyword used to search speeches.
 #' @param reference_date end date of search.
 #' @param qtd_days quantity of days before the `reference_date`.
+#' @param uf state acronym.
 #'
 #' @return the speech data with all informational columns and the speech.
 #'
@@ -15,7 +16,8 @@
 #' @examples speech_data(keyword = '"meio ambiente"', reference_date = "2021-12-20", qtd_days = 3)
 speech_data <- function(keyword,
                         reference_date,
-                        qtd_days) {
+                        qtd_days,
+                        uf = "") {
   if (lubridate::ymd(reference_date) > lubridate::ymd("2021-12-31")) {
     rlang::abort("The website dont't make 2022 speeches available yet.")
   }
@@ -24,7 +26,8 @@ speech_data <- function(keyword,
     tx_text = keyword,
     current_page = 1,
     reference_date = reference_date,
-    qtd_days = qtd_days
+    qtd_days = qtd_days,
+    uf = uf
   )
 
   pages <-
@@ -34,7 +37,8 @@ speech_data <- function(keyword,
         tx_text = keyword,
         current_page = .x,
         reference_date = reference_date,
-        qtd_days = qtd_days
+        qtd_days = qtd_days,
+        uf = uf
       )
     )
 

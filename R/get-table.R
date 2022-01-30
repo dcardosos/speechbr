@@ -4,17 +4,20 @@
 #'
 #' GET request of the pages of `DISCURSOS E NOTAS TAQUIGRÁFICAS` site given a main word or phrase and the dates.
 #'
-#' @param tx_text principal text or phrase present on speech
-#' @param current_page current page of search (integer numbers)
+#' @param tx_text principal text or phrase present on speech.
+#' @param current_page current page of search (integer numbers).
 #' @param reference_date end date of search.
 #' @param qtd_days quantity of days before the `reference_date`.
+#' @param uf state acronym.
+#'
 #' @return invisible, return a HTML file
 #'
 #' @noRd
-download_page <- function(tx_text
+download_page <- function(tx_text,
                           current_page,
                           reference_date,
-                          qtd_days) {
+                          qtd_days,
+                          uf) {
   dt_fim <- format(lubridate::ymd(reference_date), "%d/%m/%Y")
   dt_inicio <- format(lubridate::ymd(reference_date) - qtd_days, "%d/%m/%Y")
 
@@ -26,7 +29,7 @@ download_page <- function(tx_text
     "BasePesq" = "plenario",
     "dtInicio" = dt_inicio,
     "dtFim" = dt_fim,
-    "txUF" = "",
+    "txUF" = uf,
     "CampoOrdenacao" = "dtSessao",
     "TipoOrdenacao" = "DESC",
     "PageSize" = "50",
