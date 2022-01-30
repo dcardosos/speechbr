@@ -6,12 +6,12 @@
 #'
 #' @param tx_text principal text or phrase present on speech
 #' @param current_page current page of search (integer numbers)
-#' @param reference_date end date of search, the default is the last day of 2021.
-#' @param qtd_days quantity of days before the `reference_date`, the default is 5 days.
+#' @param reference_date end date of search.
+#' @param qtd_days quantity of days before the `reference_date`.
 #' @return invisible, return a HTML file
 #'
 #' @noRd
-download_page <- function(tx_text, # file,
+download_page <- function(tx_text
                           current_page,
                           reference_date,
                           qtd_days) {
