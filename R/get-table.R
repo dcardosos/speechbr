@@ -91,13 +91,16 @@ clean_table <- function(tab, txt) {
       c("local_publicacao", "data_publicacao"),
       sep = " "
     ) %>%
+    dplyr::mutate(partido = stringr::str_squish(partido)) %>%
+    tidyr::separate(partido,
+     c("partido", "estado"),
+     sep = "-") %>%
     dplyr::mutate(
       dplyr::across(
         .cols = c(data, data_publicacao),
         .fns = lubridate::dmy
       ),
-      discurso = txt,
-      partido = stringr::str_squish(partido)
+      discurso = txt
     ) %>%
     dplyr::select(-sumario)
 }
