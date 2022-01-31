@@ -36,37 +36,38 @@ devtools::install_github("dcardosos/speechbr")
 
 ## Example
 
-An example of a base searching for the term "pandemia" ("pandemic", in English):
+An example of a base searching for the term "Bolsonaro":
 
 ```{r example, warning=FALSE, message=FALSE}
 library(speechbr)
 library(ggplot2)
 
-pandemic <- speechbr::speech_data(
-  keyword = "pandemia",
-  reference_date = "2021-12-20",
+tab <- speechbr::speech_data(
+  keyword = "Bolsonaro",
+  reference_date = "2021-12-25",
   qtd_days = 5)
 
-dplyr::glimpse(pandemic)
+dplyr::glimpse(tab)
 ```
 
-The default of function is search within 2021-12-26 and 2021-12-31. If you want change this, use the arguments `reference_date` and `qtd_days`.
+The others parameters are `partido` (political party), `orador` (speaker's name) and `uf` (state acronym). The default values of them are _empty_ ("").
 
 A simple application using the base:
 
 ```{r example_2}
-pandemic %>% 
+tab %>% 
   dplyr::group_by(partido) %>% 
   dplyr::count(partido) %>% 
   dplyr::ungroup() %>% 
   dplyr::top_n(10, n) %>%
   ggplot(aes(reorder(partido, -n), n)) +
-  geom_bar(stat = "identity", fill = "dark red") +
+  geom_bar(stat = "identity", fill = "#0066ff") +
   theme_minimal() +
   labs(
-    title = "Qtde de discursos com o termo `pandemia` no período de 50 dias por partido",
-    x = "Partido",
-    y = "Quantidade de discursos"
+    title = "Quantity of speeches with that cited `Bolsonaro` per political party",
+    subtitle = "Searched within 2021-12-25 and 2021-12-20", 
+    x = "Party",
+    y = "Quantity of speeches"
   )
 ```
 
@@ -74,7 +75,7 @@ pandemic %>%
 
 ```{r example_3, echo=FALSE}
 
-pandemic %>% 
+tab %>% 
   head(2) %>%
   knitr::kable()
 ```
