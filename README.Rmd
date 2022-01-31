@@ -50,7 +50,7 @@ tab <- speechbr::speech_data(
 dplyr::glimpse(tab)
 ```
 
-The others parameters are `partido` (political party), `orador` (speaker's name) and `uf` (state acronym). The default values of them are _empty_ ("").
+The others parameters are `partido` (political party), `orador` (speaker's name) and `uf` (state acronym). Their default values are _empty_ ("").
 
 A simple application using the base:
 
@@ -64,10 +64,10 @@ tab %>%
   geom_bar(stat = "identity", fill = "#0066ff") +
   theme_minimal() +
   labs(
-    title = "Quantity of speeches with that cited `Bolsonaro` per political party",
-    subtitle = "Searched within 2021-12-25 and 2021-12-20", 
+    title = "Number of speeches that cited `Bolsonaro` by political party",
+    subtitle = "Searched between 2021-12-25 and 2021-12-20", 
     x = "Party",
-    y = "Quantity of speeches"
+    y = "Number of speeches"
   )
 ```
 

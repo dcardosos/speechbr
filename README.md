@@ -23,6 +23,15 @@ You can install the development version of speechbr from
 ``` r
 # install.packages("devtools")
 devtools::install_github("dcardosos/speechbr")
+#> 
+#>      checking for file ‘/private/var/folders/k4/tknzgz2d5dl3mn3t1cwd3zs40000gq/T/Rtmp70rECl/remotes402ac881aa/dcardosos-speechbr-27296cc/DESCRIPTION’ ...  ✓  checking for file ‘/private/var/folders/k4/tknzgz2d5dl3mn3t1cwd3zs40000gq/T/Rtmp70rECl/remotes402ac881aa/dcardosos-speechbr-27296cc/DESCRIPTION’
+#>   ─  preparing ‘speechbr’:
+#>      checking DESCRIPTION meta-information ...  ✓  checking DESCRIPTION meta-information
+#>   ─  checking for LF line-endings in source and make files and shell scripts
+#>   ─  checking for empty or unneeded directories
+#>   ─  building ‘speechbr_0.0.0.9000.tar.gz’
+#>      
+#> 
 ```
 
 ## Example
@@ -54,8 +63,8 @@ dplyr::glimpse(tab)
 ```
 
 The others parameters are `partido` (political party), `orador`
-(speaker’s name) and `uf` (state acronym). The default values of them
-are *empty* (““).
+(speaker’s name) and `uf` (state acronym). Their default values are
+*empty* (““).
 
 A simple application using the base:
 
@@ -69,10 +78,10 @@ tab %>%
   geom_bar(stat = "identity", fill = "#0066ff") +
   theme_minimal() +
   labs(
-    title = "Quantity of speeches with that cited `Bolsonaro` per political party",
-    subtitle = "Searched within 2021-12-25 and 2021-12-20", 
+    title = "Number of speeches that cited `Bolsonaro` by political party",
+    subtitle = "Searched between 2021-12-25 and 2021-12-20", 
     x = "Party",
-    y = "Quantity of speeches"
+    y = "Number of speeches"
   )
 ```
 
