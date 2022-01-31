@@ -93,17 +93,13 @@ clean_table <- function(tab, txt) {
       c("orador", "partido"),
       sep = ","
     ) %>%
-    tidyr::separate(publicacao,
-      c("local_publicacao", "data_publicacao"),
-      sep = " "
-    ) %>%
     dplyr::mutate(partido = stringr::str_squish(partido)) %>%
     tidyr::separate(partido,
      c("partido", "estado"),
      sep = "-") %>%
     dplyr::mutate(
       dplyr::across(
-        .cols = c(data, data_publicacao),
+        .cols = c(data),
         .fns = lubridate::dmy
       ),
       discurso = txt
