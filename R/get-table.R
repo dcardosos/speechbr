@@ -9,6 +9,8 @@
 #' @param reference_date end date of search.
 #' @param qtd_days quantity of days before the `reference_date`.
 #' @param uf state acronym.
+#' @param orador speaker's name.
+#' @param partido political party of speaker.
 #'
 #' @return invisible, return a HTML file
 #'
@@ -17,7 +19,9 @@ download_page <- function(tx_text,
                           current_page,
                           reference_date,
                           qtd_days,
-                          uf) {
+                          uf,
+                          orador,
+                          partido) {
   dt_fim <- format(lubridate::ymd(reference_date), "%d/%m/%Y")
   dt_inicio <- format(lubridate::ymd(reference_date) - qtd_days, "%d/%m/%Y")
 
@@ -33,7 +37,9 @@ download_page <- function(tx_text,
     "CampoOrdenacao" = "dtSessao",
     "TipoOrdenacao" = "DESC",
     "PageSize" = "50",
-    "txTexto" = tx_text
+    "txTexto" = tx_text,
+    "txOrador" = orador,
+    "txPartido" = partido
   )
 
   r <- httr::GET(u_tabela, query = query)

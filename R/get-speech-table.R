@@ -8,6 +8,8 @@
 #' @param reference_date end date of search.
 #' @param qtd_days quantity of days before the `reference_date`.
 #' @param uf state acronym.
+#' @param orador speaker's name.
+#' @param partido political party of speaker.
 #'
 #' @return the speech data with all informational columns and the speech.
 #'
@@ -17,7 +19,9 @@
 speech_data <- function(keyword,
                         reference_date,
                         qtd_days,
-                        uf = "") {
+                        uf = "",
+                        orador = "",
+                        partido = "") {
   if (lubridate::ymd(reference_date) > lubridate::ymd("2021-12-31")) {
     rlang::abort("The website dont't make 2022 speeches available yet.")
   }
@@ -27,7 +31,9 @@ speech_data <- function(keyword,
     current_page = 1,
     reference_date = reference_date,
     qtd_days = qtd_days,
-    uf = uf
+    uf = uf,
+    orador = orador,
+    partido = partido
   )
 
   pages <-
@@ -38,7 +44,9 @@ speech_data <- function(keyword,
         current_page = .x,
         reference_date = reference_date,
         qtd_days = qtd_days,
-        uf = uf
+        uf = uf,
+        orador = orador,
+        partido = partido
       )
     )
 
