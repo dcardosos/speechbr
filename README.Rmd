@@ -79,3 +79,7 @@ tab %>%
   head(2) %>%
   knitr::kable()
 ```
+
+## How to cite
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5921104.svg)](https://doi.org/10.5281/zenodo.5921104)
