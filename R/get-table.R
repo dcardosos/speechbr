@@ -118,10 +118,16 @@ clean_table <- function(tab, txt) {
 #'
 #' @noRd
 num_pag <- function(r_html) {
-  r_html %>%
+  num_documents  <- first_page %>%
     xml2::read_html() %>%
     xml2::xml_find_first('//*[@id="content"]/div/span[3]') %>%
     xml2::xml_text() %>%
     stringr::str_replace("[.]", "") %>%
-    as.integer() %/% 50 + 1
+    as.integer()
+
+  if(num_documents %% 50 == 0){
+    return(num_documents %/% 50)
+  } else {
+    return(num_documents %/% 50 + 1)
+  }
 }
