@@ -8,5 +8,10 @@ test_that("limit of `reference_date` works", {
 
   # test if the number of columns is correct
   data <- speech_data("Bolsonaro", "2021-12-25", 5)
-  expect_equal(ncol(data), 9)
+  expect_equal(ncol(data), 10)
+
+  # test if type is correct
+  data <- speech_data("Bolsonaro", "2021-12-25", 5, partido = "PT")
+  expect_type(data, "list")
+
 })

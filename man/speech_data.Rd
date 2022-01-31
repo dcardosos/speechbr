@@ -4,7 +4,14 @@
 \alias{speech_data}
 \title{Obtains the text of the speech}
 \usage{
-speech_data(keyword, reference_date, qtd_days)
+speech_data(
+  keyword,
+  reference_date,
+  qtd_days,
+  uf = "",
+  orador = "",
+  partido = ""
+)
 }
 \arguments{
 \item{keyword}{the keyword used to search speeches.}
@@ -12,6 +19,12 @@ speech_data(keyword, reference_date, qtd_days)
 \item{reference_date}{end date of search.}
 
 \item{qtd_days}{quantity of days before the \code{reference_date}.}
+
+\item{uf}{state acronym.}
+
+\item{orador}{speaker's name.}
+
+\item{partido}{political party of speaker.}
 }
 \value{
 the speech data with all informational columns and the speech.
