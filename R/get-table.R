@@ -118,7 +118,7 @@ clean_table <- function(tab, txt) {
 #'
 #' @noRd
 num_pag <- function(r_html) {
-  num_documents  <- first_page %>%
+  num_documents  <- r_html %>%
     xml2::read_html() %>%
     xml2::xml_find_first('//*[@id="content"]/div/span[3]') %>%
     xml2::xml_text() %>%
