@@ -41,7 +41,7 @@ transformer_url <- function(r_html) {
     xml2::read_html() %>%
     xml2::xml_find_all('//*[@id="content"]/div/table/tbody/tr/td/a') %>%
     xml2::xml_attr("href") %>%
-    purrr::discard(. == "#") %>%
+    purrr::discard(nchar(.) <= 250) %>%
     stringr::str_squish() %>%
     stringr::str_replace_all(" ", "") %>%
     stringr::str_remove_all("--") %>%
