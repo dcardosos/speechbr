@@ -44,6 +44,7 @@ transformer_url <- function(r_html) {
     purrr::discard(. == "#") %>%
     stringr::str_squish() %>%
     stringr::str_replace_all(" ", "") %>%
+    stringr::str_remove_all("--") %>%
     stats::na.omit() %>%
     as.character() %>%
     paste0(u_base, .)
