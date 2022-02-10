@@ -97,6 +97,7 @@ clean_table <- function(tab, txt) {
     tidyr::separate(partido,
      c("partido", "estado"),
      sep = "-") %>%
+    dplyr::filter(sessao != "") %>%
     dplyr::mutate(
       dplyr::across(
         .cols = c(data),
