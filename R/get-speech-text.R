@@ -10,7 +10,7 @@
 #'
 #'
 #' @noRd
-get_speech_text <- function(txt_urls) {
+get_speech_text <- function(txt_urls){
   txt_urls %>%
     stringr::str_remove("(?<=txTipoSessao=).+?(?=&)") %>%
     abjutils::rm_accent() %>%
@@ -37,7 +37,7 @@ get_speech_text <- function(txt_urls) {
 transformer_url <- function(r_html) {
   u_base <- "https://www.camara.leg.br/internet/sitaqweb/"
 
-  r_html %>%
+  transformed_url <- r_html %>%
     xml2::read_html() %>%
     xml2::xml_find_all('//*[@id="content"]/div/table/tbody/tr/td/a') %>%
     xml2::xml_attr("href") %>%
@@ -46,6 +46,11 @@ transformer_url <- function(r_html) {
     stringr::str_replace_all(" ", "") %>%
     stringr::str_remove_all("--") %>%
     stats::na.omit() %>%
-    as.character() %>%
-    paste0(u_base, .)
+    as.character()
+
+  if(rlang::is_empty(transformed_url)){
+    return("vazia")
+  } else {
+    return(paste0(u_base, transformed_url))
+  }
 }
