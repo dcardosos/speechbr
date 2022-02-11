@@ -60,7 +60,7 @@ speech_data <- function(keyword,
       ~ transformer_url(.x)
     ) %>%
     unlist() %>%
-    purrr::discard(. == "vazia") %>%
+    purrr::discard(. == "empty") %>%
     purrr::map(~ maybe_get_speech_text(.x)) %>%
     unlist()
 

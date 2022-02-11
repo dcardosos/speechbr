@@ -49,7 +49,7 @@ transformer_url <- function(r_html) {
     as.character()
 
   if(rlang::is_empty(transformed_url)){
-    return("vazia")
+    return("empty")
   } else {
     return(paste0(u_base, transformed_url))
   }
