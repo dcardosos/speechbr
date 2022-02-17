@@ -1,6 +1,6 @@
 Package: speechbr
 Title: Access the Speechs and Speaker's Informations of House of Representatives of Brazil
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
     person(given = "Douglas",
            family = "Cardoso",
