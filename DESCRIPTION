@@ -1,5 +1,5 @@
 Package: speechbr
-Title: Access The Speechs And Speaker's Informations of House of Representatives of Brazil
+Title: Access the Speechs and Speaker's Informations of House of Representatives of Brazil
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Douglas",
