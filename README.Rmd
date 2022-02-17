@@ -43,32 +43,37 @@ library(speechbr)
 library(ggplot2)
 
 tab <- speechbr::speech_data(
-  keyword = "Bolsonaro",
-  reference_date = "2021-12-25",
-  qtd_days = 5)
+  keyword = "tecnologia",
+  start_date = "2021-09-01", 
+  end_date = "2021-10-01")
 
 dplyr::glimpse(tab)
 ```
 
-The others parameters are `partido` (political party), `orador` (speaker's name) and `uf` (state acronym). Their default values are _empty_ ("").
+The others parameters are `party` (political party), `speaker` (speaker's name) and `uf` (state acronym). Their default values are _empty_ ("").
 
-A simple application using the base:
+A simple application using the base, a wordcloud:
 
 ```{r example_2}
-tab %>% 
-  dplyr::group_by(partido) %>% 
-  dplyr::count(partido) %>% 
-  dplyr::ungroup() %>% 
-  dplyr::top_n(10, n) %>%
-  ggplot(aes(reorder(partido, -n), n)) +
-  geom_bar(stat = "identity", fill = "#0066ff") +
-  theme_minimal() +
-  labs(
-    title = "Number of speeches that cited `Bolsonaro` by political party",
-    subtitle = "Searched between 2021-12-25 and 2021-12-20", 
-    x = "Party",
-    y = "Number of speeches"
-  )
+# install.package("wordlcoud2")
+# install.package("tidytext")
+
+stop_words <- tidytext::get_stopwords("pt")
+
+others_words <- c("nao", "ter", "termos", "r", "fls", "sr", "ja", "sao",
+                  "porque", "aqui","ha", "ser", "ano", "presidente", "tambem")
+
+tab %>%
+  tibble::rowid_to_column("id") %>%
+  dplyr::select(id, discurso) %>%
+  tidytext::unnest_tokens(word, discurso) %>%
+  dplyr::filter(!grepl('[0-9]', word)) %>%
+  dplyr::mutate(word = abjutils::rm_accent(word)) %>%
+  dplyr::anti_join(stop_words) %>%
+  dplyr::group_by(word) %>%
+  dplyr::count(word, sort = TRUE) %>%
+  dplyr::filter(n > 5, !word %in% others_words) %>% 
+  wordcloud2::wordcloud2()
 ```
 
 ### Example of a base

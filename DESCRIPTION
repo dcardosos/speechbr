@@ -29,7 +29,8 @@ Imports:
     xml2,
     rvest,
     rlang,
-    tibble
+    tibble,
+    glue
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

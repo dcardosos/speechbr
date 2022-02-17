@@ -3,3 +3,4 @@
 export("%>%")
 export(speech_data)
 importFrom(magrittr,"%>%")
+importFrom(rlang,.data)
