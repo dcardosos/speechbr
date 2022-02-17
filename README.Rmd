@@ -1,5 +1,6 @@
 ---
 output: github_document
+always_allow_html: true
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -29,7 +30,7 @@ The data is obtained on [Discursos e Notas Taquigráficas](https://www2.camara.l
 
 You can install the development version of speechbr from [GitHub](https://github.com/) with:
 
-```{r message=FALSE, warning=FALSE}
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE}
 # install.packages("devtools")
 devtools::install_github("dcardosos/speechbr")
 ```
@@ -54,7 +55,7 @@ The others parameters are `party` (political party), `speaker` (speaker's name) 
 
 A simple application using the base, a wordcloud:
 
-```{r example_2}
+```{r example_2, eval = FALSE}
 # install.package("wordlcoud2")
 # install.package("tidytext")
 
