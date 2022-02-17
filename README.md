@@ -17,7 +17,7 @@ of [Câmara dos Deputados](https://www.camara.leg.br/).
 
 ## Installation
 
-You can install the development version of speechbr from
+You can install the development version of `{speechbr}` from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -27,11 +27,10 @@ devtools::install_github("dcardosos/speechbr")
 
 ## Example
 
-An example of a base searching for the term “Bolsonaro”:
+An example of a base searching for the term "tecnologia" between 2021-09-01 and 2021-10-01:
 
 ``` r
 library(speechbr)
-library(ggplot2)
 
 tab <- speechbr::speech_data(
   keyword = "tecnologia",
