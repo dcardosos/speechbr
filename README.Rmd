@@ -28,6 +28,12 @@ The data is obtained on [Discursos e Notas Taquigráficas](https://www2.camara.l
 
 ## Installation
 
+You can install the released version of `{speechbr}` from [CRAN](https://cran.r-project.org/) with:
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE}
+install.packages("speechbr")
+```
+
 You can install the development version of `{speechbr}` from [GitHub](https://github.com/) with:
 
 ```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE}

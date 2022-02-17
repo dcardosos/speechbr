@@ -1,5 +1,5 @@
 Package: speechbr
-Title: Access The Speechs And Speaker's Informations of Camara Dos Deputados
+Title: Access The Speechs And Speaker's Informations of House of Representatives of Brazil
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Douglas",
@@ -7,9 +7,8 @@ Authors@R:
            role = c("aut", "cre"),
            email = "cardosos.doug@gmail.com",
            comment = c(ORCID = "0000-0002-3064-4486"))
-Description: Scrap Speech Text And Speaker Informations of Discusos E Notas 
-             Taquigraficas of Camara Dos Deputados Of Brazil, And Transform In 
-             A Cleaned Tibble.
+Description: Scrap speech text and speaker informations of speeches of House of 
+          Representatives of Brazil, and transform in a cleaned tibble.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

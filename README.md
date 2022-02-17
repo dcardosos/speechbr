@@ -17,6 +17,13 @@ of [Câmara dos Deputados](https://www.camara.leg.br/).
 
 ## Installation
 
+You can install the released version of `{speechbr}` from
+[CRAN](https://cran.r-project.org/) with:
+
+``` r
+install.packages("speechbr")
+```
+
 You can install the development version of `{speechbr}` from
 [GitHub](https://github.com/) with:
 
@@ -27,7 +34,8 @@ devtools::install_github("dcardosos/speechbr")
 
 ## Example
 
-An example of a base searching for the term "tecnologia" between 2021-09-01 and 2021-10-01:
+An example of a base searching for the term “tecnologia” between
+2021-09-01 and 2021-10-01:
 
 ``` r
 library(speechbr)
@@ -78,8 +86,6 @@ tab %>%
   dplyr::filter(n > 5, !word %in% others_words) %>% 
   wordcloud2::wordcloud2()
 ```
-
-<img src="man/figures/wordcloud.png" width="100%"/>
 
 ### Example of a base
 
