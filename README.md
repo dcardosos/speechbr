@@ -17,7 +17,7 @@ of [Câmara dos Deputados](https://www.camara.leg.br/).
 
 ## Installation
 
-You can install the released version of `{speechbr}` from
+The package has been submitted to CRAN, once approved you can install the released version of `{speechbr}` from
 [CRAN](https://cran.r-project.org/) with:
 
 ``` r
