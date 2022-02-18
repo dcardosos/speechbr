@@ -17,8 +17,7 @@ of [Câmara dos Deputados](https://www.camara.leg.br/).
 
 ## Installation
 
-The package has been submitted to CRAN, once approved you can install the released version of `{speechbr}` from
-[CRAN](https://cran.r-project.org/) with:
+You can install the released version of `{speechbr}` from [CRAN](https://cran.r-project.org/) with:
 
 ``` r
 install.packages("speechbr")
@@ -86,6 +85,8 @@ tab %>%
   dplyr::filter(n > 5, !word %in% others_words) %>% 
   wordcloud2::wordcloud2()
 ```
+
+<img src="man/figures/wordcloud.png" width="100%"/>
 
 ### Example of a base
 
