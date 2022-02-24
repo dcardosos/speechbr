@@ -16,6 +16,10 @@ The data is obtained on [Discursos e Notas
 Taquigráficas](https://www2.camara.leg.br/atividade-legislativa/discursos-e-notas-taquigraficas)
 of [Câmara dos Deputados](https://www.camara.leg.br/).
 
+## Observation
+
+The released version from CRAN is limited to speeches before 2022. For access speeches after 2021-12-31, use the development version.
+
 ## Installation
 
 You can install the released version of `{speechbr}` from [CRAN](https://cran.r-project.org/) with:
