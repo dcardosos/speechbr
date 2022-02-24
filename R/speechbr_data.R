@@ -43,15 +43,6 @@ speech_data <- function(
 
   }
 
-  if (lubridate::ymd(start_date) > lubridate::ymd("2021-12-31") |
-      lubridate::ymd(end_date) > lubridate::ymd("2021-12-31")) {
-
-    rlang::abort(glue::glue(
-      "The website dont't make 2022 speeches available yet.
-      Choose a `start_date` and `end_date` before 2022."))
-
-  }
-
   # extract html pages
   partial_build_url <- purrr::partial(
     build_url,

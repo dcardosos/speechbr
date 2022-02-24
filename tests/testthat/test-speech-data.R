@@ -3,12 +3,6 @@
 
 test_that("error with inappropriate `start_date` and `end_date`", {
 
-  # test with `start_date` after 2021-12-31
-  expect_error(speech_data("policia", "2022-01-01", "2022-02-01"))
-
-  # test with `end_date` after 2021-12-31
-  expect_error(speech_data("tecnologia", "2021-12-01", "2022-02-01"))
-
   # test with `start_date` greater that `end_date`
   expect_error(speech_data("CPI", "2021-08-05", "2021-05-01"))
 
