@@ -4,6 +4,7 @@
 # speechbr <img src="man/figures/hexlogo.png" align="right" width = "120px"/>
 
 <!-- badges: start -->
+[![](https://cranlogs.r-pkg.org/badges/speechbr)](https://cran.r-project.org/package=speechbr)
 <!-- badges: end -->
 
 ## Overview
